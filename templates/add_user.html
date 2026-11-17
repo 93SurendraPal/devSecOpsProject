@@ -2,32 +2,123 @@
 <html>
 <head>
     <title>Add Employee</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 30px;
+        }
+
+        .container {
+            width: 450px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .btn {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .back-btn {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        .back-btn:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
+
 <body>
 
-<h2>Add Employee</h2>
+<div class="container">
 
-<form method="POST">
+    <h2>Add Employee</h2>
 
-    <label>Name</label><br>
-    <input type="text" name="name" required><br><br>
+    <form method="POST">
 
-    <label>Email</label><br>
-    <input type="email" name="email" required><br><br>
+        <label>Name</label>
+        <input
+            type="text"
+            name="name"
+            placeholder="Enter employee name"
+            required
+        >
 
-    <label>Department</label><br>
-    <input type="text" name="department" required><br><br>
+        <label>Email</label>
+        <input
+            type="email"
+            name="email"
+            placeholder="Enter email address"
+            required
+        >
 
-    <button type="submit">
-        Save
-    </button>
+        <label>Department</label>
+        <input
+            type="text"
+            name="department"
+            placeholder="Enter department"
+            required
+        >
 
-</form>
+        <button class="btn" type="submit">
+            Save Employee
+        </button>
+
+    </form>
+
+    <a href="/" class="back-btn">
+        ← Back to Employee List
+    </a>
+
+</div>
 
 </body>
 </html>
-
-<p>
-    Served by Container:
-    <strong>{{ container_id }}</strong>
-</p>

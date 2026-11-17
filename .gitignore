@@ -1,0 +1,5 @@
+venv/
+
+surendra-devops-project.pem
+
+*.pyc

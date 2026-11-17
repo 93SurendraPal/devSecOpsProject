@@ -4,14 +4,15 @@ import config
 
 app = Flask(__name__)
 
-
 def get_connection():
-    conn = pymysql.connect(
+    return pymysql.connect(
         host=config.MYSQL_HOST,
         user=config.MYSQL_USER,
         password=config.MYSQL_PASSWORD,
         database=config.MYSQL_DB
-        )
+    )
+def create_table():
+    conn = get_connection()
     cursor = conn.cursor()
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS employees (
@@ -22,6 +23,7 @@ def get_connection():
     """)
     conn.commit()
     return conn
+
 @app.route('/')
 def index():
 
@@ -68,6 +70,7 @@ def add_employee():
 
 
 if __name__ == '__main__':
+    create_table()
     app.run(
         debug=True,
         host='0.0.0.0',
