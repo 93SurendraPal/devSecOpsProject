@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import pymysql
 import config
+import socket
 
 app = Flask(__name__)
 
@@ -26,7 +27,7 @@ def create_table():
 
 @app.route('/')
 def index():
-
+    container_id = socket.gethostname()
     conn = get_connection()
     cursor = conn.cursor()
 
@@ -35,7 +36,7 @@ def index():
 
     conn.close()
 
-    return render_template('index.html', employees=employees)
+    return render_template('index.html', container_id = container_id,employees=employees)
 
 
 @app.route('/add', methods=['GET', 'POST'])
